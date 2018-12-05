@@ -1,0 +1,25 @@
+CREATE TABLE  Tarea(
+Tarea_Titulo varchar(50),
+Id_Responsable int,
+Tarea_Fecha_de_Inicio timestamp,
+Tarea_Fecha_de_Fin timestamp,
+Tarea_Porcentaje float,
+Tarea_Categoria varchar(20),
+Id_Sub_Tareas int
+);
+
+CREATE TABLE Responsable(
+Responsable_Id int,
+Responsable_Nombre varchar(20)
+);
+
+CREATE TABLE Sub_Tarea(
+Sub_Tarea_Id int,
+Sub_Tarea_Responsable varchar(20),
+Sub_Tarea_Nombre varchar(20),
+Sub_Tarea_Fecha_de_Vencimiento timestamp
+);
+
+drop table Tarea;
+drop table Responsable;
+drop table Sub_Tarea;
