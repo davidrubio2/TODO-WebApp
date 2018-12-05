@@ -1,0 +1,15 @@
+Examen de dominio de nuevas tecnologias(NodeJS - MongoDB).
+
+Elaborar una aplicacion MEAN(MongoDB,Express, AngularJS y NodeJS) para Implementar un TODO.
+
+La aplicacion debe componerse de las siguientes opciones:
+
+1. Pantalla donde puedas agregar tareas, con los siguientes campos:
+	a. Titulo
+	b. Responsable (Contar con una coleccion de responsables)
+	c. Fecha de Inicio
+	d. Fecha de Fin
+	e. Porcentaje de Avance
+	f. Categoria
+	g. Cada tarea puede tener 0..N subtareas, a cada tarea se le puede asignar responsable, nombre y fecha de vencimiento. En caso que las subtareas excedan la fecha de fin, notificar.
+2. Consulta donde pueda ver las tareas filtradas por responsable, rango de fechas o categoria.
