@@ -48,3 +48,20 @@ SECURITY DEFINER
 drop function fun_ConsultarTodosCategorias;
 
 select  fun_ConsultarTodosCategorias;
+
+
+CREATE or replace FUNCTION fun_ConsultarPorFiltros(fun_id_responsable int, fun_categoria_id int, fun_fecha timestamp,)
+ RETURNS TABLE (
+ val_Id int,
+ val_Nombre varchar(100)
+) 
+AS $$
+BEGIN
+	RETURN QUERY select categoria_id,categoria_nombre from categoria;
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_ConsultarTodosCategorias;
+
+select  fun_ConsultarTodosCategorias;
