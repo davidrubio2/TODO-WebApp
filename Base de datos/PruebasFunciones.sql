@@ -1,11 +1,11 @@
 ﻿CREATE or replace FUNCTION fun_Nueva_Tarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
-fun_tarea_fecha_de_fin timestamp,fun_tarea_porcentaje float,fun_categoria_id int, fun_id_sub_tareas int)
+fun_tarea_fecha_de_fin timestamp,fun_categoria_id int, fun_id_sub_tareas int)
 RETURNS void AS $$
 
 BEGIN
 	insert into tarea(tarea_titulo,id_responsable,
 	tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id,id_sub_tareas)
-	values(fun_tarea_titulo,fun_id_responsable,fun_tarea_fecha_de_inicio,fun_tarea_fecha_de_fin,fun_tarea_porcentaje,fun_categoria_id,fun_id_sub_tareas);
+	values(fun_tarea_titulo,fun_id_responsable,fun_tarea_fecha_de_inicio,fun_tarea_fecha_de_fin,fun_categoria_id,fun_id_sub_tareas);
 END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER

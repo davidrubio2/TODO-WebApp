@@ -43,3 +43,24 @@ const initOptions = {
     funNuevaSubTarea: funNuevaSubTarea
   };
   
+
+  function funNuevaTarea(req, res, next) {
+    db.func('fun_Nueva_Tarea', [req.body.TareaTitulo,
+        req.body.IdResponsable,req.body.FechaInicio,req.body.FechaFin,
+        req.body.IdCategoria, req.body.IdSubTarea])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Nueva Tarea'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+  
+
+
+
