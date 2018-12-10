@@ -47,7 +47,7 @@ SECURITY DEFINER
 
 drop function fun_ConsultarTodosCategorias;
 
-select  fun_ConsultarTodosCategorias;
+select  fun_ConsultarTodosCategorias();
 
 
 CREATE or replace FUNCTION fun_ConsultarPorFiltros(fun_id_responsable text, fun_categoria_id text, fun_fecha_inicio text,fun_fecha_fin text)
@@ -58,7 +58,7 @@ val_fecha_de_inicio timestamp,
 val_fecha_de_fin timestamp,
 val_porcentaje float,
 val_categoria_nombre  varchar(50),
-val_id_sub_tareas int
+val_id_sub_tareas varchar(20)
 )
 AS $$
 declare 
@@ -69,12 +69,14 @@ var_fecha_fin ALIAS FOR  $4;
 BEGIN
 	RETURN QUERY 
 	select tarea.tarea_titulo,responsable.responsable_nombre,
-	tarea.tarea_fecha_de_inicio,tarea.tarea_fecha_de_fin, tarea.tarea_porcentaje,categoria.categoria_nombre,tarea.id_sub_tareas 
+	tarea.tarea_fecha_de_inicio,tarea.tarea_fecha_de_fin, tarea.tarea_porcentaje,categoria.categoria_nombre,sub_tarea.sub_tarea_nombre 
 	from tarea 
 	inner join responsable 
 	on tarea.id_responsable = responsable.responsable_id
 	inner join categoria 
 	on tarea.categoria_id = categoria.categoria_id
+	inner join sub_tarea
+	on tarea.id_sub_tareas = sub_tarea.sub_tarea_id
         where tarea.id_responsable::text  LIKE ( fun_id_responsable || '%')
         and 
 	tarea.categoria_id::text  LIKE ( fun_categoria_id || '%')
@@ -82,6 +84,7 @@ BEGIN
 	tarea.tarea_fecha_de_inicio::TEXT like ( fun_fecha_inicio || '%')
 	and
         tarea.tarea_fecha_de_inicio::TEXT like ( fun_fecha_fin || '%');
+        
 	
 END;
 $$ LANGUAGE plpgsql
@@ -89,4 +92,4 @@ SECURITY DEFINER
 
 drop function fun_ConsultarPorFiltros;
 
-select  fun_ConsultarPorFiltros('1','1','2018-12-08','2018-12-08');
+select  fun_ConsultarPorFiltros('2','','','');
