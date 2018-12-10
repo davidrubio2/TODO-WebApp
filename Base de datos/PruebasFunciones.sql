@@ -93,3 +93,18 @@ SECURITY DEFINER
 drop function fun_ConsultarPorFiltros;
 
 select  fun_ConsultarPorFiltros('2','','','');
+
+CREATE or replace FUNCTION fun_nueva_sub_tarea(fun_id_responsable int , fun_sub_tarea_nombre varchar(50),fun_sub_tarea_fecha_de_vencimiento timestamp)
+RETURNS void AS $$
+
+BEGIN
+	insert into sub_tarea(id_responsable,sub_tarea_nombre,
+	sub_tarea_fecha_de_vencimiento)
+	values(fun_id_responsable,fun_sub_tarea_nombre,fun_sub_tarea_fecha_de_vencimiento);
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_nueva_sub_tarea;
+
+select  fun_nueva_sub_tarea('2','caminar','2018-12-08');
