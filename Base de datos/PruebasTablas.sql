@@ -18,14 +18,6 @@ tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id,id_sub_t
 
 
 
-select tarea.tarea_titulo,responsable.responsable_nombre,
-	tarea.tarea_fecha_de_inicio,tarea.tarea_fecha_de_fin, tarea.tarea_porcentaje,categoria.categoria_nombre,tarea.id_sub_tareas 
-	from tarea inner join responsable on tarea.id_responsable = responsable.responsable_id
-	 inner join categoria on tarea.categoria_id = categoria.categoria_id
-	where 
-	tarea.id_responsable::text  LIKE '2%' 
-
-
 CREATE TABLE responsable(
 responsable_id SERIAL PRIMARY KEY,
 responsable_nombre varchar(100),
