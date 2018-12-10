@@ -10,7 +10,7 @@ id_sub_tareas int
 );
 
 drop table tarea;
-
+delete from tarea
 insert into tarea(tarea_titulo,id_responsable,
 tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id) values('Cortar Verdura',
 '1','2018-12-05','2018-12-05','0.1','1')
@@ -20,6 +20,7 @@ responsable_id SERIAL PRIMARY KEY,
 responsable_nombre varchar(100),
 responsable_fecha_de_insercion timestamp default now()
 );
+delete from responsable
 drop table responsable;
 
 select responsable_id,responsable_nombre from responsable
@@ -33,6 +34,7 @@ categoria_id SERIAL PRIMARY KEY,
 categoria_nombre varchar(50) not null,
 responsable_fecha_de_insercion timestamp default now()
 )
+delete from categoria
 drop table categoria;
 insert into categoria(categoria_nombre) values('Trabajo manual');
 insert into categoria(categoria_nombre) values('Informatica');
@@ -44,6 +46,7 @@ sub_tarea_responsable varchar(20),
 sub_tarea_nombre varchar(20),
 sub_tarea_fecha_de_vencimiento timestamp
 );
+delete from sub_Tarea;
 drop table sub_Tarea;
 
 
