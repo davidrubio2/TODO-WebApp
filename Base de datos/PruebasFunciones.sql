@@ -1,4 +1,4 @@
-﻿CREATE or replace FUNCTION fun_NuevaTarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
+﻿CREATE or replace FUNCTION fun_Nueva_Tarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
 fun_tarea_fecha_de_fin timestamp,fun_tarea_porcentaje float,fun_categoria_id int, fun_id_sub_tareas int)
 RETURNS void AS $$
 
@@ -10,13 +10,13 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-DROP FUNCTION public.fun_nuevatarea(character varying, integer, timestamp without time zone, timestamp without time zone, double precision, integer, integer);
+DROP FUNCTION public.fun_nueva_tarea(character varying, integer, timestamp without time zone, timestamp without time zone, double precision, integer, integer);
 
-select  fun_NuevaTarea('Cortar Verdura','1','2018-12-05','2018-12-05','0.1','1','1');
+select  fun_Nueva_Tarea('Cortar Verdura','1','2018-12-05','2018-12-05','0.1','1','1');
 
 
 
-CREATE or replace FUNCTION fun_ConsultarTodosResponsables()
+CREATE or replace FUNCTION fun_Consultar_Todos_Responsables()
  RETURNS TABLE (
  val_Id int,
  val_Nombre varchar(100)
@@ -28,12 +28,12 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-drop function fun_ConsultarTodosResponsables;
+drop function fun_Consultar_Todos_Responsables;
 
-select  fun_ConsultarTodosResponsables();
+select  fun_Consultar_Todos_Responsables();
 
 
-CREATE or replace FUNCTION fun_ConsultarTodosCategorias()
+CREATE or replace FUNCTION fun_Consultar_Todas_Categorias()
  RETURNS TABLE (
  val_Id int,
  val_Nombre varchar(100)
@@ -45,12 +45,12 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-drop function fun_ConsultarTodosCategorias;
+drop function fun_Consultar_Todas_Categorias;
 
-select  fun_ConsultarTodosCategorias();
+select  fun_Consultar_Todas_Categorias();
 
 
-CREATE or replace FUNCTION fun_ConsultarPorFiltros(fun_id_responsable text, fun_categoria_id text, fun_fecha_inicio text,fun_fecha_fin text)
+CREATE or replace FUNCTION fun_Consultar_Por_Filtros(fun_id_responsable text, fun_categoria_id text, fun_fecha_inicio text,fun_fecha_fin text)
  RETURNS TABLE (
  val_Titulo varchar(50),
  val_responsable_nombre varchar(100),
@@ -90,9 +90,9 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-drop function fun_ConsultarPorFiltros;
+drop function fun_Consultar_Por_Filtros;
 
-select  fun_ConsultarPorFiltros('2','','','');
+select  fun_Consultar_Por_Filtros('2','','','');
 
 CREATE or replace FUNCTION fun_nueva_sub_tarea(fun_id_responsable int , fun_sub_tarea_nombre varchar(50),fun_sub_tarea_fecha_de_vencimiento timestamp)
 RETURNS void AS $$
