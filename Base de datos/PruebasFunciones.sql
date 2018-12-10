@@ -12,12 +12,11 @@ SECURITY DEFINER
 
 DROP FUNCTION public.fun_nuevatarea(character varying, integer, timestamp without time zone, timestamp without time zone, double precision, integer, integer);
 
-
 select  fun_NuevaTarea('Cortar Verdura','1','2018-12-05','2018-12-05','0.1','1','1');
 
 
 
-CREATE or replace FUNCTION fun_ConsultarResponsables()
+CREATE or replace FUNCTION fun_ConsultarTodosResponsables()
  RETURNS TABLE (
  val_Id int,
  val_Nombre varchar(100)
@@ -29,6 +28,23 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-drop function fun_ConsultarResponsables;
+drop function fun_ConsultarTodosResponsables;
 
-select  fun_ConsultarResponsables();
+select  fun_ConsultarTodosResponsables();
+
+
+CREATE or replace FUNCTION fun_ConsultarTodosCategorias()
+ RETURNS TABLE (
+ val_Id int,
+ val_Nombre varchar(100)
+) 
+AS $$
+BEGIN
+	RETURN QUERY select categoria_id,categoria_nombre from categoria;
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_ConsultarTodosCategorias;
+
+select  fun_ConsultarTodosCategorias;
