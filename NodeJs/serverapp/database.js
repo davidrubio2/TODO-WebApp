@@ -36,10 +36,10 @@ const initOptions = {
   // add query functions
   
   module.exports = {
-    fun_Nueva_Tarea: fun_Nueva_Tarea,
-    fun_Consultar_Todos_Responsables: fun_Consultar_Todos_Responsables,
-    fun_Consultar_Todas_Categorias: fun_Consultar_Todas_Categorias,
-    fun_Consultar_Por_Filtros: fun_Consultar_Por_Filtros,
-    fun_nueva_sub_tarea: fun_nueva_sub_tarea
+    funNuevaTarea: funNuevaTarea,
+    funConsultarTodosResponsables: funConsultarTodosResponsables,
+    funConsultarTodasCategorias: funConsultarTodasCategorias,
+    funConsultarPor_iltros: funConsultarPor_iltros,
+    funNuevaSubTarea: funNuevaSubTarea
   };
   
