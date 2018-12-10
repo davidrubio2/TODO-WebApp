@@ -1,15 +1,6 @@
-﻿CREATE or replace FUNCTION fun_NuevaTarea(tarea_titulo varchar(50), id_responsable int, tarea_fecha_de_inicio timestamp,
-tarea_fecha_de_fin timestamp,tarea_porcentaje float,categoria_id int, id_sub_tareas int)
+﻿CREATE or replace FUNCTION fun_NuevaTarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
+fun_tarea_fecha_de_fin timestamp,fun_tarea_porcentaje float,fun_categoria_id int, fun_id_sub_tareas int)
 RETURNS void AS $$
-DECLARE
-
-fun_tarea_titulo  ALIAS FOR $1;
-fun_id_responsable  ALIAS FOR $2;
-fun_tarea_fecha_de_inicio ALIAS FOR $3;
-fun_tarea_fecha_de_fin ALIAS FOR $4;
-fun_tarea_porcentaje ALIAS FOR $5;
-fun_categoria_id ALIAS FOR $6;
-fun_id_sub_tareas ALIAS FOR $7;
 
 BEGIN
 	insert into tarea(tarea_titulo,id_responsable,
@@ -19,7 +10,25 @@ END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
 
-drop function fun_NuevaTarearesponsable , tarea_fecha_de_inicio ,
-tarea_fecha_de_fin ,tarea_porcentaje ,categoria_id , id_sub_tareas);
+DROP FUNCTION public.fun_nuevatarea(character varying, integer, timestamp without time zone, timestamp without time zone, double precision, integer, integer);
+
 
 select  fun_NuevaTarea('Cortar Verdura','1','2018-12-05','2018-12-05','0.1','1','1');
+
+
+
+CREATE or replace FUNCTION fun_ConsultarResponsables()
+ RETURNS TABLE (
+ val_Id int,
+ val_Nombre varchar(100)
+) 
+AS $$
+BEGIN
+	RETURN QUERY select responsable_id,responsable_nombre from responsable;
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_ConsultarResponsables;
+
+select  fun_ConsultarResponsables();
