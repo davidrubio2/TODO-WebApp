@@ -39,7 +39,7 @@ const initOptions = {
     funNuevaTarea: funNuevaTarea,
     funConsultarTodosResponsables: funConsultarTodosResponsables,
     funConsultarTodasCategorias: funConsultarTodasCategorias,
-    funConsultarPor_iltros: funConsultarPor_iltros,
+    funConsultarPorFiltros: funConsultarPorFiltros,
     funNuevaSubTarea: funNuevaSubTarea
   };
   
@@ -53,7 +53,7 @@ const initOptions = {
           .json({
             status: 'success',
             data: data,
-            message: 'Nueva Tarea'
+            message: 'Nueva Tarea Agregada'
           });
       })
       .catch(function (err) {
@@ -61,6 +61,65 @@ const initOptions = {
       });
   }
   
+  function funConsultarTodosResponsables(req, res, next) {
+    db.func('fun_Consultar_Todos_Responsables', [])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Consulta de Responsables'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+
+  function funConsultarTodasCategorias(req, res, next) {
+    db.func('fun_Consultar_Todas_Categorias', [])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Consulta de Categorias'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+
+  function funConsultarPorFiltros(req, res, next) {
+    db.func('fun_Consultar_Por_Filtros', [req.body.IdResponsable,
+        req.body.IdCategoria,req.body.FechaInicio,req.body.FechaFin])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Consulta por filtros'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
 
 
-
+  function funNuevaSubTarea(req, res, next) {
+    db.func('fun_nueva_sub_tarea', [req.body.IdResponsable,
+        req.body.Nombre,req.body.FechaVencimiento])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Nueva Subtarea Agregada'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
