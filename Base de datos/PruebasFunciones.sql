@@ -13,9 +13,7 @@ SECURITY DEFINER
 DROP FUNCTION public.fun_nueva_tarea(character varying, integer, timestamp without time zone, timestamp without time zone, double precision, integer, integer);
 
 select  fun_Nueva_Tarea('Cortar Verdura','1','2018-12-05','2018-12-05','0.1','1','1');
-
-
-
+-------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_Consultar_Todos_Responsables()
  RETURNS TABLE (
  val_Id int,
@@ -32,7 +30,7 @@ drop function fun_Consultar_Todos_Responsables;
 
 select  fun_Consultar_Todos_Responsables();
 
-
+-------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_Consultar_Todas_Categorias()
  RETURNS TABLE (
  val_Id int,
@@ -49,7 +47,7 @@ drop function fun_Consultar_Todas_Categorias;
 
 select  fun_Consultar_Todas_Categorias();
 
-
+-------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_Consultar_Por_Filtros(fun_id_responsable text, fun_categoria_id text, fun_fecha_inicio text,fun_fecha_fin text)
  RETURNS TABLE (
  val_Titulo varchar(50),
@@ -93,7 +91,7 @@ SECURITY DEFINER
 drop function fun_Consultar_Por_Filtros;
 
 select  fun_Consultar_Por_Filtros('2','','','');
-
+-------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_nueva_sub_tarea(fun_id_responsable int , fun_sub_tarea_nombre varchar(50),fun_sub_tarea_fecha_de_vencimiento timestamp)
 RETURNS void AS $$
 

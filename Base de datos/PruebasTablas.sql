@@ -14,10 +14,7 @@ delete from tarea
 insert into tarea(tarea_titulo,id_responsable,
 tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id,id_sub_tareas) values('Cortar Verdura',
 '2','2018-12-05','2018-12-08','0.1','2','1')
-
-
-
-
+-------------------------------------------------------------------------------------------
 CREATE TABLE responsable(
 responsable_id SERIAL PRIMARY KEY,
 responsable_nombre varchar(100),
@@ -31,7 +28,7 @@ insert into responsable(responsable_nombre) values('David Rubio Ramirez');
 insert into responsable(responsable_nombre) values('Agnel Hernandez Montoya');
 insert into responsable(responsable_nombre) values('Mauricio Medina Macron');
 insert into responsable(responsable_nombre) values('Pepe Sanchez Ziploc');
-
+-------------------------------------------------------------------------------------------
 create table categoria(
 categoria_id SERIAL PRIMARY KEY,
 categoria_nombre varchar(50) not null,
@@ -42,7 +39,7 @@ drop table categoria;
 insert into categoria(categoria_nombre) values('Trabajo manual');
 insert into categoria(categoria_nombre) values('Informatica');
 insert into categoria(categoria_nombre) values('Agricola');
-
+-------------------------------------------------------------------------------------------
 CREATE TABLE sub_tarea(
 sub_tarea_id SERIAL PRIMARY KEY,
 id_responsable int,
