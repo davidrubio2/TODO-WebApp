@@ -1,6 +1,24 @@
-<html>
-<header><title>This is title</title></header>
-<body>
-Hello world
+<!DOCTYPE html>
+<html ng-app="WebApp">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
+  <script type="text/javascript" src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js'></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body id="Index">
+  <div>
+    <div id="navigation">
+     <a href="#/Home">Agregar Tareas</a>
+     <a href="#/Consultas">Consultar Tareas</a>        
+    </div>
+    <div ng-view></div>
+  </div>
+  <script type="text/javascript" src='./Routes.js'></script>
 </body>
+
 </html>
