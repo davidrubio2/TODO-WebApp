@@ -1,7 +1,13 @@
-var AgregarTareaSessions = angular.module("AgregarTareaSessions", ['AgregarTareaSessionsAppService']);
-AgregarTareaSessions.controller("AgregarTareaSessionsController", ['$scope', 'AgregarTareaSessionsService', function ($scope, AgregarTareaSessionsService) {
+var AgregarTareaSession = angular.module("AgregarTareaSession", ['AgregarTareaSessionAppService']);
+AgregarTareaSession.controller("AgregarTareaSessionController", ['$scope', 'AgregarTareaSessionService', function ($scope, AgregarTareaSessionService) {
     
-        $scope.InicioSessionAppService = []
-       
+        $scope.AgregarTareaSessionAppService = []
+        //alert("I am an alert box!");
+
+               AgregarTareaSessionService.GetConsultarResponsables().then(function (response) {
+                $scope.Responsables = response.data.data;
+        });
+        
+
 }]);
 

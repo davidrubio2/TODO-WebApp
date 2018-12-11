@@ -3,7 +3,7 @@
 <h1 align="center">Agregar Tareas</h1>
 
 <section class="contact-wrap">
-    <form class="container" class="contact-form" ng-submit="AgregarTarea()" name="inquiryForm" novalidate>
+    <form class="container" class="contact-form" ng-submit="mensjae()" name="inquiryForm" novalidate>
 
         <div class="col-sm-12">
             <label>Titulo:</label>
@@ -13,9 +13,12 @@
 
 
         <div class="col-sm-12">
-            <label>Responsable:</label>
-            <input type="text"  ng-model="Responsable" ng-required="true"
-                class="form-control">
+                <label for="name">Responsable:</label>
+                <select ng-model="Responsable" ng-repeat="item in Responsables" ng-required="true">
+                  <option value='3'>{{ Responsables.val_Nombre }}</option>
+                  <option value="6">6 pagos: 7% de interes</option>
+                  <option value="9">9 pagos: 12% de interes</option>
+                </select>
         </div>
 
         <div class="col-sm-12">
