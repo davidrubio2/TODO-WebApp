@@ -22,7 +22,7 @@ const initOptions = {
     host: 'localhost' // server name or IP address;
   
   };
-  pgp.pg.defaults.ssl = true;
+ // pgp.pg.defaults.ssl = true;
   var db = pgp(cn);
   
   db.connect()
