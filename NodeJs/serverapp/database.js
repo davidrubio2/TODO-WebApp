@@ -47,7 +47,7 @@ const initOptions = {
   function funNuevaTarea(req, res, next) {
     db.func('fun_Nueva_Tarea', [req.body.TareaTitulo,
         req.body.IdResponsable,req.body.FechaInicio,req.body.FechaFin,
-        req.body.IdCategoria, req.body.IdSubTarea])
+        req.body.Porcentaje,req.body.IdCategoria, req.body.IdSubTarea])
       .then(function (data) {
         res.status(200)
           .json({

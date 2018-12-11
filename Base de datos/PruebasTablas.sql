@@ -4,6 +4,7 @@ tarea_titulo varchar(50) not null,
 id_responsable int not null,
 tarea_fecha_de_inicio timestamp  not null,
 tarea_fecha_de_fin timestamp  not null,
+tarea_porcentaje float default 0.0,
 categoria_id int  not null,
 id_sub_tareas int default 0
 );
@@ -11,8 +12,8 @@ id_sub_tareas int default 0
 drop table tarea;
 delete from tarea
 insert into tarea(tarea_titulo,id_responsable,
-tarea_fecha_de_inicio,tarea_fecha_de_fin,categoria_id,id_sub_tareas) values('Cortar Verdura',
-'2','2018-12-05','2018-12-08','2','1');
+tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id,id_sub_tareas) values('Cortar Verdura',
+'2','2018-12-05','2018-12-08','0.1','2','1')
 -------------------------------------------------------------------------------------------
 CREATE TABLE responsable(
 responsable_id SERIAL PRIMARY KEY,
