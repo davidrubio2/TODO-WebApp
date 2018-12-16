@@ -23,4 +23,3 @@ Sub_Tarea_Fecha_de_Vencimiento timestamp
 drop table Tarea;
 drop table Responsable;
 drop table Sub_Tarea;
-----
