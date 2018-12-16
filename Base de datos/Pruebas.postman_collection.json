@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "d07969a5-0b59-43d9-b63a-446cdbe8962b",
+		"name": "Pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/ConsultarPorFiltros",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"IdResponsable\": \"1\",\n\"IdCategoria\" : \"\",\n\"FechaInicio\" : \"\",\n\"FechaFin\":\"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ConsultarPorFiltros",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ConsultarPorFiltros"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/ConsultarTodasCategorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ConsultarTodasCategorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ConsultarTodasCategorias"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/ConsultarTodosResponsables",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ConsultarTodosResponsables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ConsultarTodosResponsables"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/NuevaSubTarea",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"IdResponsable\":\"2\",\n\"Nombre\":\"correr\",\n\"FechaVencimiento\":\"2018-12-08\",\n\"TareaId\": \"3\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/NuevaSubTarea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"NuevaSubTarea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/NuevaTarea",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"TareaTitulo\":\"saltar\",\n        \"IdResponsable\":\"1\",\n        \"FechaInicio\":\"2018-12-05\",\n        \"FechaFin\":\"2018-12-05\",\n        \"Porcentaje\":\"0.5\",\n        \"IdCategoria\":\"2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/NuevaTarea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"NuevaTarea"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/ConsultarSubTarea",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"IdTarea\":\"1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/ConsultarSubTarea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"ConsultarSubTarea"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
