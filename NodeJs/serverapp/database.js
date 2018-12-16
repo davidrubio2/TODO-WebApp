@@ -40,14 +40,15 @@ const initOptions = {
     funConsultarTodosResponsables: funConsultarTodosResponsables,
     funConsultarTodasCategorias: funConsultarTodasCategorias,
     funConsultarPorFiltros: funConsultarPorFiltros,
-    funNuevaSubTarea: funNuevaSubTarea
+    funNuevaSubTarea: funNuevaSubTarea,
+    funConsultarSubTarea: funConsultarSubTarea
   };
   
 
   function funNuevaTarea(req, res, next) {
-    db.func('fun_Nueva_Tarea', [req.body.TareaTitulo,
+    db.func('fun_nueva_tarea', [req.body.TareaTitulo,
         req.body.IdResponsable,req.body.FechaInicio,req.body.FechaFin,
-        req.body.Porcentaje,req.body.IdCategoria, req.body.IdSubTarea])
+        req.body.Porcentaje,req.body.IdCategoria])
       .then(function (data) {
         res.status(200)
           .json({
@@ -92,7 +93,7 @@ const initOptions = {
   }
 
   function funConsultarPorFiltros(req, res, next) {
-    db.func('fun_Consultar_Por_Filtros', [req.body.IdResponsable,
+    db.func('fun_consultar_por_filtros', [req.body.IdResponsable,
         req.body.IdCategoria,req.body.FechaInicio,req.body.FechaFin])
       .then(function (data) {
         res.status(200)
@@ -110,13 +111,28 @@ const initOptions = {
 
   function funNuevaSubTarea(req, res, next) {
     db.func('fun_nueva_sub_tarea', [req.body.IdResponsable,
-        req.body.Nombre,req.body.FechaVencimiento])
+        req.body.Nombre,req.body.FechaVencimiento,req.body.TareaId])
       .then(function (data) {
         res.status(200)
           .json({
             status: 'success',
             data: data,
             message: 'Nueva Subtarea Agregada'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+
+  function funConsultarSubTarea(req, res, next) {
+    db.func('fun_consultar_sub_tarea', [req.body.IdTarea])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Consulta de Tarea'
           });
       })
       .catch(function (err) {
