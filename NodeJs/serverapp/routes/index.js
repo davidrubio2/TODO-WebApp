@@ -6,6 +6,7 @@ router.get('/api/ConsultarTodosResponsables', db.funConsultarTodosResponsables);
 router.get('/api/ConsultarTodasCategorias', db.funConsultarTodasCategorias);
 router.post('/api/ConsultarPorFiltros', db.funConsultarPorFiltros);
 router.post('/api/NuevaSubTarea', db.funNuevaSubTarea);
+router.post('/api/ConsultarSubTarea', db.funConsultarSubTarea);
 
 
 module.exports = router;
