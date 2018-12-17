@@ -176,6 +176,68 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost/NuevaCategoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"CategoriaNombre\":\"Postman\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/NuevaCategoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"NuevaCategoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhostNuevoResponsable",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"ResponsableNombre\":\"Postman\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/NuevoResponsable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"NuevoResponsable"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
