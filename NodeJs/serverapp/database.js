@@ -41,7 +41,9 @@ const initOptions = {
     funConsultarTodasCategorias: funConsultarTodasCategorias,
     funConsultarPorFiltros: funConsultarPorFiltros,
     funNuevaSubTarea: funNuevaSubTarea,
-    funConsultarSubTarea: funConsultarSubTarea
+    funConsultarSubTarea: funConsultarSubTarea,
+    funNuevaCategoria: funNuevaCategoria,
+    funNuevoResponsable: funNuevoResponsable
   };
   
 
@@ -133,6 +135,36 @@ const initOptions = {
             status: 'success',
             data: data,
             message: 'Consulta de Tarea'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+
+  function funNuevaCategoria(req, res, next) {
+    db.func('fun_nueva_categoria', [req.body.CategoriaNombre])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Nueva Categoria'
+          });
+      })
+      .catch(function (err) {
+        return next(err);
+      });
+  }
+
+  function funNuevoResponsable(req, res, next) {
+    db.func('fun_nuevo_responsable', [req.body.ResponsableNombre])
+      .then(function (data) {
+        res.status(200)
+          .json({
+            status: 'success',
+            data: data,
+            message: 'Nuevo Responsable'
           });
       })
       .catch(function (err) {
