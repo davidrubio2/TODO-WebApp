@@ -1,4 +1,4 @@
-CREATE or replace FUNCTION fun_nueva_tarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
+﻿CREATE or replace FUNCTION fun_nueva_tarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
 fun_tarea_fecha_de_fin timestamp,fun_porcentaje float,fun_categoria_id int)
 RETURNS void AS $$
 
@@ -34,7 +34,7 @@ select  fun_Consultar_Todos_Responsables();
 CREATE or replace FUNCTION fun_consultar_todas_categorias()
  RETURNS TABLE (
  val_Id int,
- val_Nombre varchar(100)
+ val_Nombre varchar(50)
 ) 
 AS $$
 BEGIN
@@ -88,7 +88,7 @@ SECURITY DEFINER
 
 drop function fun_consultar_por_filtros;
 
-select  fun_consultar_por_filtros('','','','');
+select  fun_consultar_por_filtros('1','','','');
 -------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_nueva_sub_tarea(fun_id_responsable int , fun_sub_tarea_nombre varchar(50),fun_sub_tarea_fecha_de_vencimiento timestamp,fun_tarea_id int)
 RETURNS void AS $$
@@ -118,4 +118,32 @@ SECURITY DEFINER
 
 drop function fun_consultar_sub_tarea;
 
-select  fun_consultar_sub_tarea('2');
+select  fun_consultar_sub_tarea('1');
+
+-------------------------------------------------------------------------------------------
+CREATE or replace FUNCTION fun_nueva_categoria(fun_categoria_nombre varchar(50))
+RETURNS void AS $$
+
+BEGIN
+	insert into categoria(categoria_nombre)
+	values(fun_categoria_nombre);
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_nueva_categoria;
+
+select  fun_nueva_categoria('Aire');
+-------------------------------------------------------------------------------------
+CREATE or replace FUNCTION fun_nuevo_responsable(fun_responsable_nombre  varchar(100))
+ RETURNS void AS $$
+BEGIN
+	insert into responsable(responsable_nombre)
+	values(fun_responsable_nombre);
+END;
+$$ LANGUAGE plpgsql
+SECURITY DEFINER
+
+drop function fun_nuevo_responsable;
+
+select  fun_nuevo_responsable('MArio');
