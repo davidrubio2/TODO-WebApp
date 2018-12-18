@@ -7,6 +7,12 @@ angular.module('AgregarTareaSessionAppService', [])
                         return $http.get(url)
 
                 },
+                
+                GetConsultarTodasCategorias: function () {
+                        var url = 'api/ConsultarTodasCategorias'
+                        return $http.get(url)
+
+                },
         }
 
                 return handler;

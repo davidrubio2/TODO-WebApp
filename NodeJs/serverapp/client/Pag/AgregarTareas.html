@@ -7,48 +7,48 @@
 
         <div class="col-sm-12">
             <label>Titulo:</label>
-            <input type="text" maxlength="50" ng-required="true"
-            ng-model="titulo" class="form-control">
+            <input type="text" maxlength="50" ng-required="true" ng-model="titulo" class="form-control">
         </div>
 
-
+        <p> </p>
         <div class="col-sm-12">
-                <label for="name">Responsable:</label>
-                <select ng-model="Responsable" ng-repeat="item in Responsables" ng-required="true">
-                  <option value='3'>{{ Responsables.val_Nombre }}</option>
-                  <option value="6">6 pagos: 7% de interes</option>
-                  <option value="9">9 pagos: 12% de interes</option>
-                </select>
+            <label for="Responsable">Responsable:</label>
+            <select ng-model="Responsable" ng-required="true" ng-options="optRes.val_nombre for optRes in Responsables">
+            </select>
         </div>
+        <p> </p>
+
+        <p> </p>
+        <div class="col-sm-12">
+            <label >Categoria:</label>
+            <select ng-model="Categoria" ng-required="true" ng-options="optCat.val_nombre for optCat in Categoria">
+            </select>
+        </div>
+        <p> </p>
+
+
 
         <div class="col-sm-12">
             <label>Fecha De inicio:</label>
-            <input type="datetime-local"  ng-model="FechaDeinicio"    ng-required="true"
-                class="form-control">
+            <input type="datetime-local" ng-model="FechaDeinicio" ng-required="true" class="form-control">
         </div>
 
         <div class="col-sm-12">
             <label>Fecha de Fin:</label>
-            <input type="datetime-local"   ng-model="FechadeFin"   ng-required="true"
-                class="form-control">
+            <input type="datetime-local" ng-model="FechadeFin" ng-required="true" class="form-control">
         </div>
 
         <div class="col-sm-12">
             <label>Porcentaje de Avance:</label>
-            <input  type="number" ng-model="PorcentajedeAvance" min="0.00" max="10000.00" step="0.01" ng-required="true"
-                class="form-control">
-        </div>
-
-        <div class="col-sm-12">
-            <label>Categoria:</label>
-            <input type="text" ng-model="Categoria" ng-required="true"
+            <input type="number" ng-model="PorcentajedeAvance" min="0.00" max="10000.00" step="0.01" ng-required="true"
                 class="form-control">
         </div>
 
         <p> </p>
 
         <div class="col-sm-10">
-            <button type="submit" id="submit" name="submit" class="btn btn-primary pull-left" ng-disabled="inquiryForm.$invalid">Agregar Tarea</button>
+            <button type="submit" id="submit" name="submit" class="btn btn-primary pull-left" ng-disabled="inquiryForm.$invalid">Agregar
+                Tarea</button>
         </div>
     </form>
 </section>
