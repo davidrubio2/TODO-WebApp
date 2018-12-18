@@ -1,6 +1,36 @@
-<html>
-<header><title>This is title</title></header>
+<title>FINCAMEX</title>
+
 <body>
-Consultar Tareas
+    <form class="contact-form" ng-submit="Busqueda()" name="inquiryForm" novalidate>
+
+        <div class="container-fluid">
+            
+          
+                    <h2>Tareas</h2>
+                    <table id="table_tareas" class="table table-bordered">
+                   
+                        <thead>
+                            <tr>
+                                <td>Titulo</td>
+                                <td>Responsable</td>
+                                <td>Fecha de Inicio</td>
+                                <td>Fecha de Fin</td>
+                                <td>Porcentaje</td>
+                                <td>Categoria</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in TareaBusqueda">
+                                <td>{{ item.val_titulo }}</td>
+                                <td>{{ item.val_responsable_nombre }}</td>
+                                <td>{{ item.val_fecha_de_inicio }}</td>
+                                <td>{{ item.val_fecha_de_fin }}</td>
+                                <td>{{ item.val_porcentaje}}%</td>
+                                <td>{{ item.val_categoria_nombre }} </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-success">Realizar Busqueda</button>
+    </form>
 </body>
-</html>

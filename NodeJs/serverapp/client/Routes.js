@@ -1,6 +1,6 @@
 'use strict';
 
-var WebApp = angular.module('WebApp', ['ngRoute','AgregarTareaSession']);
+var WebApp = angular.module('WebApp', ['ngRoute','AgregarTareaSession','ConsultarTareasSession']);
 WebApp.config(['$routeProvider',
     function (
         $routeProvider
@@ -12,7 +12,8 @@ WebApp.config(['$routeProvider',
 
             }).
             when('/Consultas', {
-                templateUrl: 'Pag/ConsultarTareas.html'
+                templateUrl: 'Pag/ConsultarTareas.html',
+                controller: 'ConsultarTareasSessionController'
             }).
             otherwise({
                 redirectTo: '/Home'
