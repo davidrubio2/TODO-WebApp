@@ -18,6 +18,11 @@ angular.module('AgregarTareaSessionAppService', [])
                                 return $http.post(url, data)
 
                         },
+                        InsertarSubTarea: function (data) {
+                                var url = 'api/NuevaSubTarea'
+                                return $http.post(url, data)
+
+                        },
                 }
 
                 return handler;
