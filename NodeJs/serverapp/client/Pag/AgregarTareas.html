@@ -3,7 +3,7 @@
 <h1 align="center">Agregar Tareas</h1>
 
 <section class="contact-wrap">
-    <form class="container" class="contact-form" ng-submit="mensjae()" name="inquiryForm" novalidate>
+    <form class="container" class="contact-form" ng-submit="AgregarTarea()" name="inquiryForm" novalidate>
 
         <div class="col-sm-12">
             <label>Titulo:</label>
@@ -12,7 +12,7 @@
 
         <p> </p>
         <div class="col-sm-12">
-            <label for="Responsable">Responsable:</label>
+            <label for="Responsables">Responsable:</label>
             <select ng-model="Responsable" ng-required="true" ng-options="optRes.val_nombre for optRes in Responsables">
             </select>
         </div>
@@ -20,13 +20,11 @@
 
         <p> </p>
         <div class="col-sm-12">
-            <label >Categoria:</label>
-            <select ng-model="Categoria" ng-required="true" ng-options="optCat.val_nombre for optCat in Categoria">
+            <label>Categoria:</label>
+            <select ng-model="Categoria" ng-required="true" ng-options="optCat.val_nombre for optCat in Categorias">
             </select>
         </div>
         <p> </p>
-
-
 
         <div class="col-sm-12">
             <label>Fecha De inicio:</label>
@@ -45,10 +43,39 @@
         </div>
 
         <p> </p>
+        <div class="col-sm-12">
+            <label>SubTareas:</label>
+            <select ng-model="SubTarea" ng-required="true" ng-options="optCat.val_nombre for optCat in SubTareas">
+
+            </select>
+        </div>
+        
+        <p> </p>
 
         <div class="col-sm-10">
             <button type="submit" id="submit" name="submit" class="btn btn-primary pull-left" ng-disabled="inquiryForm.$invalid">Agregar
                 Tarea</button>
         </div>
+
+       
+
     </form>
+    <form class="container" class="contact-form" ng-submit="AgregarSubTarea()" name="inquiryForm" novalidate>
+      <h3 align="center">Agregar SubTareas</h3>
+
+      <p> </p>
+      <div class="col-sm-12">
+          <label for="Responsables">Responsable:</label>
+          <select ng-model="Responsable" ng-required="true" ng-options="optRes.val_nombre for optRes in Responsables">
+          </select>
+      </div>
+      <p> </p>
+
+      <div class="col-sm-10">
+            <button type="submit" id="submit" name="submit" class="btn btn-primary pull-left" ng-disabled="inquiryForm.$invalid">Agregar
+                SubTarea</button>
+        </div>
+
+    </form>
+    <p> </p>
 </section>
