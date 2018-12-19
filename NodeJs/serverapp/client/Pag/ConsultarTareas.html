@@ -18,15 +18,22 @@
                     <label>Fecha de Inicio:</label>
                     <input type="datetime-local" ng-model="FechadeInicio" ng-required="true" class="form-control">
                 </div>
-
+         
+         
+                <div>
+                    <label for="Responsables">Responsable:</label>
+                    <select ng-model="Responsable" ng-required="true" ng-options="optRes.val_nombre for optRes in Responsables">
+                    </select>
+                </div>
+             
+        
+            
                 <div>
                     <label>Categoria:</label>
-                    <input type="text" ng-model="Categoria" ng-required="true" class="form-control">
+                    <select ng-model="Categoria" ng-required="true" ng-options="optCat.val_nombre for optCat in Categorias">
+                    </select>
                 </div>
-                <div>
-                    <label>Responsable:</label>
-                    <input type="text" ng-model="Responsable" ng-required="true" class="form-control">
-                </div>
+            
             </div>
 
             <div class="col-sm-12 text-center">

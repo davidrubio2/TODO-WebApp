@@ -7,6 +7,17 @@ angular.module('ConsultarTareasSessionAppService', [])
                     return $http.post(url, data)
 
             },
+            GetConsultarResponsables: function () {
+                    var url = 'api/ConsultarTodosResponsables'
+                    return $http.get(url)
+
+            },
+
+            GetConsultarTodasCategorias: function () {
+                    var url = 'api/ConsultarTodasCategorias'
+                    return $http.get(url)
+
+            },
         }
 
                 return handler;
