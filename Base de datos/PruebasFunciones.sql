@@ -1,11 +1,14 @@
 ﻿CREATE or replace FUNCTION fun_nueva_tarea(fun_tarea_titulo varchar(50), fun_id_responsable int, fun_tarea_fecha_de_inicio timestamp,
 fun_tarea_fecha_de_fin timestamp,fun_porcentaje float,fun_categoria_id int)
-RETURNS void AS $$
+ RETURNS TABLE (
+ val_Id int) AS $$
 
 BEGIN
 	insert into tarea(tarea_titulo,id_responsable,
 	tarea_fecha_de_inicio,tarea_fecha_de_fin, tarea_porcentaje,categoria_id)
 	values(fun_tarea_titulo,fun_id_responsable,fun_tarea_fecha_de_inicio,fun_tarea_fecha_de_fin,fun_porcentaje ,fun_categoria_id);
+	RETURN QUERY tarea_id from tarea order by tarea_id desc limit 1;
+
 END;
 $$ LANGUAGE plpgsql
 SECURITY DEFINER
@@ -88,7 +91,7 @@ SECURITY DEFINER
 
 drop function fun_consultar_por_filtros;
 
-select  fun_consultar_por_filtros('1','','','');
+select  fun_consultar_por_filtros('','','','');
 -------------------------------------------------------------------------------------------
 CREATE or replace FUNCTION fun_nueva_sub_tarea(fun_id_responsable int , fun_sub_tarea_nombre varchar(50),fun_sub_tarea_fecha_de_vencimiento timestamp,fun_tarea_id int)
 RETURNS void AS $$
